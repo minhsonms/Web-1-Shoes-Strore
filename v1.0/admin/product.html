@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản lý sản phẩm</title>
+<link rel="stylesheet" type="text/css" href="../css/admincp.css">
+</head>
+<body onLoad="showProductList(0);hello()">
+<div id="wrap">
+	<div id="maincontent">
+		<div id="nav">
+			<div id="hello">Xin chào username</div>
+			<div id="avatar"></div>
+		</div>
+		<header id="navbar">
+    <img class="logo" src="../images/logo/logo.png" alt="error">  
+    <ul class="menu">
+		<a href="../index.html">Trang chủ</a>
+      <a href="product.html">Quản lí sản phẩm</a>
+      <a href="bill.html">Quản lí đơn hàng</a>
+      <a href="user.html">Quản lí người dùng</a>
+      <a href="#">Thống kê</a>
+    </ul>
+  </header>
+	  <h2 style="text-align: center">QUẢN LÍ SẢN PHẨM </h2>
+	  <hr  style=" border: 1px solid #000000; margin: 30px;">
+		<div id="content">
+			<div id="leftsection">
+				<div id="maintable">
+
+					<table id="productlist">
+					</table>
+					<div id="pagination"></div>
+				</div>
+			</div>
+			<div id="rightsection">
+				<div class="subsection">
+					<h1>TÌM KIẾM SẢN PHẨM</h1>
+					<form onkeyup="searchproduct()" onchange="searchproduct()">
+					<label for="searchproductname">Tên sản phẩm</label>
+					<input type="text" id="searchproductname">
+					<label for="searchproductbrand">Thương hiệu</label>
+					<select id="searchproductbrand">
+						<option value="all" selected>TẤT CẢ</option>
+						<option value="adidas">CAO GÓT</option>
+						<option value="nike">SANDAL</option>
+						<option value="gucci">BÚP BÊ</option>
+						<option value="balenciaga">SNEAKER</option>
+					</select>
+					</form>
+				</div>
+				<div class="subsection">
+					<h1>THÊM SẢN PHẨM</h1>
+					<form>
+					<label for="productname">Tên sản phẩm</label>
+					<input type="text" id="productname">
+					<label for="brand">Thương hiệu:</label>
+					<select id="brand">
+						<option value="adidas">CAO GÓT</option>
+						<option value="nike">SANDAL</option>
+						<option value="gucci">BÚP BÊ</option>
+						<option value="balenciaga">SNEAKER</option>
+					</select><br>
+					<label for="productprice">Giá</label>
+					<input type="text" id="productprice">
+					<img id="imgadd" src="../images/product/temp2.jpg">
+					<label >Ảnh</label>
+					<input type="file" onchange="changeimgadd(this)"><br>
+					<button type="reset">Xóa</button>
+					<button type="button" onClick="addProduct()">Thêm</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal1" class="modal">
+		<div id="changeproduct">
+			<button class="close" onclick="closechangebox()">&times;</button>
+			<div class="image">
+				<img id="imgbefore" src="">
+				<img id="imgafter" src="">
+			</div>
+			<div class="info">
+				<label for="name">Tên sản phẩm</label>
+				<input type="text" id="name" value="Vans Old Skool Otw Repeat"><br>
+				<label for="name">Giá</label>
+				<input type="text" id="price" value="1439000"><br>
+				<input type="file" id="fileimg" onchange="changeimg(this)">
+			</div>
+			<button id="save">Lưu chỉnh sửa</button>
+		</div>
+	</div>
+</div>
+<div id="customalert"></div>
+<script src="../js/admin.js"></script>
+</body>
+</html>

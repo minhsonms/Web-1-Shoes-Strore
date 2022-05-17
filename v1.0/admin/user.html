@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản lý khách hàng</title>
+<link rel="stylesheet" type="text/css" href="../css/admincp.css">
+  <script src="https://kit.fontawesome.com/fa14c23e36.js" crossorigin="anonymous"></script>
+</head>
+<body onLoad="showUserList();hello()">
+<div id="wrap">
+
+	<div id="maincontent">
+		<div id="nav">
+			<div id="hello">Xin chào username</div>
+			<div id="avatar"></div>
+		</div>
+		<header id="navbar">
+    <img class="logo" src="../images/logo/logo.png" alt="error">  
+    <ul class="menu">
+		<a href="../index.html">Trang chủ</a>
+      <a href="product.html">Quản lí sản phẩm</a>
+      <a href="bill.html">Quản lí đơn hàng</a>
+      <a href="user.html">Quản lí người dùng</a>
+      <a href="#">Thống kê</a>
+    </ul>
+  </header>
+	  <h2 style="text-align: center">QUẢN LÍ KHÁCH HÀNG </h2>
+	  <hr  style=" border: 1px solid #000000; margin: 30px;">
+		<div id="content">
+			<div id="leftsection">
+				<div id="maintable">
+					<table id="userlist">
+						<tr>
+							<th>STT</th>
+							<th>HỌ TÊN KH</th>
+							<th>TÊN ĐĂNG NHẬP</th>
+							<th>NGÀY ĐĂNG KÝ</th>
+							<th>Xóa</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="rightsection">
+				<div class="subsection">
+					<h1>TÌM KIẾM KHÁCH HÀNG</h1>
+					<form>
+					<label for="username">Tên đăng nhập</label>
+					<input type="text" id="username">
+					<label for="fullname">Tên khách hàng</label>
+					<input type="text" id="fullname">
+					<label for="datesign">Ngày đăng ký</label>
+					<input type="text" id="datesign">
+					<button type="reset">Xóa</button>
+					<button type="button">Tìm</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../js/admin.js"></script>
+</body>
+</html>

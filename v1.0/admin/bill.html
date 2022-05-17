@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quản lý đơn hàng</title>
+
+	<link type="text/css" rel="stylesheet" href="../css/admincp.css">
+</head>
+<body onload="hello();showbilllist()">
+	<div id="wrap">
+
+
+	<div id="maincontent">
+		<div id="nav">
+			<div id="hello">Xin chào username</div>
+		</div>
+		<header id="navbar">
+    <img class="logo" src="../images/logo/logo.png" alt="error">  
+    <ul class="menu">
+		<a href="../index.html">Trang chủ</a>
+      <a href="product.html">Quản lí sản phẩm</a>
+      <a href="bill.html">Quản lí đơn hàng</a>
+      <a href="user.html">Quản lí người dùng</a>
+      <a href="#">Thống kê</a>
+    </ul>
+  </header>
+	  <h2 style="text-align: center">QUẢN LÍ ĐƠN HÀNG </h2>
+	  <hr  style=" border: 1px solid #000000; margin: 30px;">
+		<div id="content">
+			<div id="leftsection">
+				<div id="maintable">
+					<table id="billlist">
+						<tr>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="rightsection">
+				<div class="subsection">
+					<h1>TÌM KIẾM</h1>
+					<form>
+					<label for="name">Tên khách hàng</label>
+					<input type="text" id="name">
+					<label for="date">Ngày</label>
+					<input type="date" id="date">
+					<label for="status">Trạng thái</label>
+					<select id="statussearch">
+						<option value="Chưa xử lý">Chưa xử lý</option>
+						<option value="Đã xử lý">Đã xử lý</option>
+					</select>
+					<button type="button" onclick="searchBill()">Tìm</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal1" class="modal">
+		<div id="info">
+		</div>
+	</div>
+</div>
+<script src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="wvan3011">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sneaker Holic</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="alertifyjs/css/alertify.min.css" />
+    <link rel="stylesheet" href="alertifyjs/css/themes/default.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.12.0-web/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="alertifyjs/alertify.min.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+
+<body>
+    <header id="navbar">
+        <a href="index.html"><img class="logo" src="images/logo/logo.png" alt="logo"></a>
+
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+      <i class="fas fa-bars"></i>
+    </label>
+        <!-- checkLogin() main.js-->
+        <div id="login-name">
+        </div>
+
+        <div class="customer">
+            <i class="fas fa-sign-out-alt" onclick="logout();"></i>
+            <i class="fas fa-user-alt"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-search"></i>
+        </div>
+
+        <!-- showMenu() main.js-->
+        <ul id="menu"></ul>
+    </header>
+
+    <div id="signin-background">
+        <i class="fas fa-times"></i>
+        <div class="form-modal">
+            <div class="form-toggle">
+                <button id="login-toggle" onclick="toggleLogin()">Đăng nhập</button>
+                <button id="signup-toggle" onclick="toggleSignup()">Đăng ký</button>
+            </div>
+            <div id="login-form">
+                <form>
+                    <input type="text" placeholder="Nhập email hoặc username" />
+                    <input type="password" placeholder="Nhập mật khẩu" />
+                    <button type="button" class="btn login" onclick="checkValueSignIn();">Đăng nhập</button>
+                    <p>Bạn chưa có tài khoản? <a onclick="toggleSignup()" href="javascript:void(0)">Đăng ký</a></p>
+                </form>
+            </div>
+            <div id="signup-form">
+                <form>
+                    <input type="text" placeholder="Nhập Họ và Tên của bạn" />
+                    <input type="text" placeholder="Nhập địa chỉ" />
+                    <input type="text" placeholder="Nhập số điện thoại" />
+                    <input type="text" placeholder="Nhập tên đăng nhập" />
+                    <input type="password" placeholder="Nhập mật khẩu" />
+                    <input type="password" placeholder="Nhập lại mật khẩu" />
+                    <button type="button" class="btn signup" onclick="checkValueSignUp();">Tạo tài khoản</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- showCart() main.js -->
+    <div id="cart-background">
+        <i class="fas fa-times"></i>
+        <h1>Giỏ hàng</h1>
+        <div id="bill-title">
+            <span onclick="showBill()">Đơn hàng đã đặt</span>
+        </div>
+        <div id="bill-wrapper"></div>
+
+        <div id="cart-title">
+            <span>Giỏ hàng của bạn</span>
+        </div>
+
+        <div id="cart-wrapper"></div>
+
+        <div class="totals">
+            <div class="totals-item">
+                <label>Tạm tính</label>
+                <div class="totals-value" id="cart-subtotal"></div>
+            </div>
+            <div class="totals-item">
+                <label>Thuế (5%)</label>
+                <div class="totals-value" id="cart-tax"></div>
+            </div>
+            <div class="totals-item">
+                <label>Phí Ship</label>
+                <div class="totals-value" id="cart-shipping"></div>
+            </div>
+            <div class="totals-item totals-item-total">
+                <label>Tổng cộng</label>
+                <div class="totals-value" id="cart-total"></div>
+            </div>
+        </div>
+
+        <button class="checkout" onclick="createBill()">Thanh Toán</button>
+
+
+
+    </div>
+
+    <!-- showSearch() main.js -->
+    <div id="search-background">
+        <i class="fas fa-times"></i>
+        <div class="searchbox">
+            <input type="text" placeholder="Tìm kiếm" id="search" onKeyUp="search()"><button onclick="showextend()"><img src="images/icon/arrow.svg"></button>
+        </div>
+        <div id="searchextend" class="">
+            <div>
+                <select id="brandsearch" onchange="search()">
+        <option value="all" selected>Tất cả</option>
+        <option value="bupbe">búp bê</option>
+        <option value="caogot">cao gót</option>
+        <option value="sandal">sandal</option>
+        <option value="sneaker">sneaker</option>
+      </select>
+            </div>
+            <div> <input type="text" id="priceform" onchange="search()" placeholder="Giá từ"> &mdash; <input type="text" id="priceto" onchange="search()" placeholder="Đến"></div>
+        </div>
+        <div id="product-result"></div>
+    </div>
+
+    <!-- .slideShow style.css-->
+    <div class="slideShow">
+    </div>
+
+    <!-- showTitle() main.js-->
+    <div id="title">
+    </div>
+
+    <!-- showProduct() main.js-->
+    <div id="product">
+    </div>
+
+    <!-- showProductCard() main.js-->
+    <div id="product-card-background">
+        <div id="product-card">
+            <i class="fas fa-times"></i>
+            <h1 id="product-brand"></h1>
+            <p id="product-name"></p>
+            <div id="product-pic"></div>
+            <div id="product-colors"></div>
+            <div id="product-size"></div>
+            <div id="product-info">
+                <div id="product-price"></div>
+                <a id="product-button">Thêm vào giỏ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- showNumPages(numPages) main.js-->
+    <div class="pagination">
+        <a id="pagination-older">TRƯỚC</a>
+        <span id="pagination-inner">
+    </span>
+        <a id="pagination-newer">SAU</a>
+    </div>
+
+    <div class="email-box">
+        <h3>Đăng ký nhận bản tin The Sneakerholic</h3>
+        <h5>Đừng bỏ lỡ vô vàn đầu giày đình đám kèm chương trình ưu đãi siêu hấp dẫn được cập nhật liên tục</h5>
+        <input type="email" placeholder="Địa chỉ mail của bạn" required>
+        <button type="button" name="button">Đăng ký</button>
+    </div>
+
+    <div class="testimonial-section">
+        <div class="inner-width">
+            <h1>Khách Hàng Đánh Giá</h1>
+            <div class="testimonial-pics">
+                <img src="images/author/1.jpg" alt="test-1" class="active">
+                <img src="images/author/2.jpg" alt="test-2">
+                <img src="images/author/3.jpg" alt="test-3">
+                <img src="images/author/4.jpg" alt="test-4">
+            </div>
+
+            <div class="testimonial-contents">
+                <div class="testimonial active" id="test-1">
+                    <p>"Chất lượng sản phẩm tuyệt zời ông mặt trời"</p>
+                    <span class="description">Thái Văn / Developer</span>
+                </div>
+
+                <div class="testimonial" id="test-2">
+                    <p>"Không chỉ sản phẩm tốt mà còn giao diện web đẹp nhìn là muốn iu luôn"</p>
+                    <span class="description">Minh Sơn / Developer</span>
+                </div>
+
+                <div class="testimonial" id="test-3">
+                    <p>"Còn chần chờ gì mà không chấm 10₫ cho tụi em :)"</p>
+                    <span class="description">Khánh Hòa / Developer</span>
+                </div>
+
+                <div class="testimonial" id="test-4">
+                    <p>"Không thích trả dép bố về -_-"</p>
+                    <span class="description">Bích Trâm / Developer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    </script>
+
+</body>
+
+</html>
